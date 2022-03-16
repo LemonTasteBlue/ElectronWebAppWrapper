@@ -2,5 +2,6 @@
   "windowTitle": "ElectronWrapper",
   "windowHeight": 600,
   "windowWidth": 800,
-  "url": "https://messenger.com/"
+  "url": "https://messenger.com/",
+  "openExternal": false
 }
