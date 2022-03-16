@@ -10,7 +10,7 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 
 const createWindow = () => {
 
-    let config = JSON.parse(fs.readFileSync(path.join(__dirname, 'appconf.json'), 'utf8'));
+    let config = JSON.parse(fs.readFileSync(path.join(__dirname, '../appconf.json'), 'utf8'));
     console.log(config);
     // Create the browser window.
     const mainWindow = new BrowserWindow({
