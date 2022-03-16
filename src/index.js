@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, shell} = require('electron');
 const path = require('path');
 
 const fs = require('fs');
@@ -22,14 +22,21 @@ const createWindow = () => {
         title: config.windowTitle
     });
 
+    if (config.openExternal) {
+        mainWindow.webContents.on("new-window", function (event, externalUrl) {
+            event.preventDefault();
+            shell.openExternal(externalUrl).then(r => {
+                console.log(r);
+            });
+        });
+    }
+
     // and load the index.html of the app.
     // mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
     mainWindow.loadURL(config.url);
-
-    // Open the DevTools.
-    // mainWindow.webContents.openDevTools();
 };
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
