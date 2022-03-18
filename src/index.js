@@ -1,4 +1,4 @@
-const {app, BrowserWindow, shell} = require('electron');
+const {app, BrowserWindow, shell, Menu} = require('electron');
 const path = require('path');
 
 const fs = require('fs');
@@ -7,6 +7,22 @@ const fs = require('fs');
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
     app.quit();
 }
+
+let menuTemplate = [
+    {
+        label: "Window Manager",
+        submenu: [
+            {label: "create New"}
+        ]
+    },
+    {
+        label: "View",
+        submenu: [
+            {role: "reload"},
+            {label: "custom reload"}
+        ]
+    }
+];
 
 const createWindow = () => {
 
@@ -35,6 +51,8 @@ const createWindow = () => {
     // mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
     mainWindow.loadURL(config.url);
+
+    Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate));
 };
 
 
