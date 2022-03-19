@@ -3,5 +3,19 @@
   "windowHeight": 600,
   "windowWidth": 800,
   "url": "https://messenger.com/",
-  "openExternal": false
+  "openExternal": false,
+  "openDevTools": false,
+  "menu": [
+    {
+      "label": "File",
+      "submenu": [
+        {
+          "label": "Open"
+        },
+        {
+          "label": "Create workspace"
+        }
+      ]
+    }
+  ]
 }

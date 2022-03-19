@@ -8,22 +8,6 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
     app.quit();
 }
 
-let menuTemplate = [
-    {
-        label: "Window Manager",
-        submenu: [
-            {label: "create New"}
-        ]
-    },
-    {
-        label: "View",
-        submenu: [
-            {role: "reload"},
-            {label: "custom reload"}
-        ]
-    }
-];
-
 const createWindow = () => {
 
     let config = JSON.parse(fs.readFileSync(path.join(__dirname, '../appconf.json'), 'utf8'));
@@ -52,7 +36,7 @@ const createWindow = () => {
 
     mainWindow.loadURL(config.url);
 
-    Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate));
+    Menu.setApplicationMenu(Menu.buildFromTemplate(config.menu));
 };
 
 
